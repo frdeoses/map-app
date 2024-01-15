@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { LngLat, Map, MapStyle, Marker, config } from '@maptiler/sdk';
+import { environment } from 'src/environments/environment';
 
 interface MarkerAndColor {
   color: string;
@@ -35,7 +36,7 @@ export class MarkersPageComponent implements OnInit, AfterViewInit, OnDestroy {
   divMap!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    config.apiKey = '4ZhCRwabcTcu8HiFySp0';
+    config.apiKey = environment.map_tilder_key;
   }
 
   ngAfterViewInit() {

@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { LngLat, Map, MapStyle, config } from '@maptiler/sdk';
+import { environment } from 'src/environments/environment';
 
 @Component({
   templateUrl: './zoom-range-page.component.html',
@@ -25,7 +26,7 @@ export class ZoomRangePageComponent
   divMap!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    config.apiKey = '4ZhCRwabcTcu8HiFySp0';
+    config.apiKey = environment.map_tilder_key;
   }
 
   ngAfterViewInit() {

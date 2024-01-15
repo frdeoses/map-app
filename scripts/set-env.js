@@ -6,6 +6,7 @@ const targetPath = './src/environments/environment.ts';
 
 const envFileContent = `
 export const environment = {
+  map_tilder_key: "${ process.env['MAPTILDER_KEY'] }",
   otra: "propiedad",
 };
 `;

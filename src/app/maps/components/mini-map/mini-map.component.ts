@@ -3,17 +3,19 @@ import {
   Component,
   ElementRef,
   Input,
+  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
 import { Map, MapStyle, Marker, config } from '@maptiler/sdk';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'map-mini-map',
   templateUrl: './mini-map.component.html',
   styleUrls: ['./mini-map.component.css'],
 })
-export class MiniMapComponent implements OnInit, AfterViewInit {
+export class MiniMapComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input()
   lngLat?: [number, number];
 
@@ -23,7 +25,7 @@ export class MiniMapComponent implements OnInit, AfterViewInit {
   map?: Map;
 
   ngOnInit(): void {
-    config.apiKey = '4ZhCRwabcTcu8HiFySp0';
+    config.apiKey = environment.map_tilder_key;
   }
 
   ngAfterViewInit(): void {
@@ -40,5 +42,9 @@ export class MiniMapComponent implements OnInit, AfterViewInit {
     });
 
     new Marker().setLngLat(this.lngLat).addTo(this.map);
+  }
+
+  ngOnDestroy(): void {
+    this.map?.remove();
   }
 }

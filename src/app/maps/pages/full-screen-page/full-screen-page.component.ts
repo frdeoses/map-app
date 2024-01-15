@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Map, MapStyle, Marker, config } from '@maptiler/sdk';
+import { environment } from 'src/environments/environment';
 
 // import '@maptiler/sdk/dist/maptiler-sdk.css';
 
@@ -23,7 +24,7 @@ export class FullScreenPageComponent
   divMap!: ElementRef<HTMLElement>;
 
   ngOnInit(): void {
-    config.apiKey = '4ZhCRwabcTcu8HiFySp0';
+    config.apiKey = environment.map_tilder_key;
   }
 
   ngAfterViewInit() {
